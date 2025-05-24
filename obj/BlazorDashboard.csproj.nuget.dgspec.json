@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dalalaljassem/BlazorDashboard/BlazorDashboard.csproj": {}
+    "/Users/dalalaljassem/BlazorDashboardClean/BlazorDashboard.csproj": {}
   },
   "projects": {
-    "/Users/dalalaljassem/BlazorDashboard/BlazorDashboard.csproj": {
+    "/Users/dalalaljassem/BlazorDashboardClean/BlazorDashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dalalaljassem/BlazorDashboard/BlazorDashboard.csproj",
+        "projectUniqueName": "/Users/dalalaljassem/BlazorDashboardClean/BlazorDashboard.csproj",
         "projectName": "BlazorDashboard",
-        "projectPath": "/Users/dalalaljassem/BlazorDashboard/BlazorDashboard.csproj",
+        "projectPath": "/Users/dalalaljassem/BlazorDashboardClean/BlazorDashboard.csproj",
         "packagesPath": "/Users/dalalaljassem/.nuget/packages/",
-        "outputPath": "/Users/dalalaljassem/BlazorDashboard/obj/",
+        "outputPath": "/Users/dalalaljassem/BlazorDashboardClean/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/dalalaljassem/.nuget/NuGet/NuGet.Config"

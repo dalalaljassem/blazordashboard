@@ -112,3 +112,17 @@ code {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+/* side-nav */
+.active-navlink {
+    background: var(--bs-blue);
+    border-radius: 8px;
+    color: white;
+  }
+
+  /* top-nav */
+  .custom-appbar {
+    background: var(--mud-palette-drawer-background);
+    backdrop-filter: blur(12px);
+  }
+  

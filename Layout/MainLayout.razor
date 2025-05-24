@@ -1,16 +1,74 @@
 ﻿@inherits LayoutComponentBase
-<div class="page">
-    <div class="sidebar">
+
+@inject NavigationManager NavigationManager
+
+<MudThemeProvider />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+@if (NavigationManager.Uri.EndsWith("login", StringComparison.InvariantCultureIgnoreCase)
+|| NavigationManager.Uri.EndsWith("register", StringComparison.InvariantCultureIgnoreCase))
+{
+    @Body
+}
+else
+{
+    <MudLayout>
+    <MudAppBar Elevation="0" Fixed="true" Class="custom-appbar">
+        <MudStack Row="true" Spacing="2">
+            <MudIconButton Class="rounded-lg" Icon="@Icons.Material.Filled.Menu" Edge="Edge.Start"
+                OnClick="@((e) => DrawerToggle())" />
+            <MudText Color="Color.Default" Typo="Typo.h6" Class="my-auto text-[#424242] dark:text-white">
+                Blazewind
+            </MudText>
+        </MudStack>
+        <MudSpacer />
+        <MudStack Row="true" Spacing="1">
+            <MudToggleIconButton Size="Size.Medium" Color="Color.Default" Icon="@Icons.Material.Rounded.LightMode"
+                ToggledIcon="@Icons.Material.Rounded.DarkMode" Class="p-2 my-auto" />
+            <MudBadge Content="3" Color="Color.Error" Overlap="true" Class="my-auto">
+                <MudIconButton Size="Size.Medium" Class="p-2" Color="Color.Default"
+                    Icon="@Icons.Material.Rounded.Notifications" />
+            </MudBadge>
+            <MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+                <ActivatorContent>
+                    <MudChip T="string" Size="Size.Large" Color="Color.Inherit">
+                        <MudStack Spacing="0" Row="true" Class="flex flex-row">
+                            <MudAvatar>
+                                <MudImage Src="https://i.pravatar.cc/300"></MudImage>
+                            </MudAvatar>
+                            <MudText Typo="Typo.body2" Class="my-auto">
+                                User
+                            </MudText>
+                        </MudStack>
+                    </MudChip>
+                </ActivatorContent>
+                <ChildContent>
+                    <MudMenuItem>Profile</MudMenuItem>
+                    <MudMenuItem>Theme</MudMenuItem>
+                    <MudMenuItem>Usage</MudMenuItem>
+                    <MudMenuItem>Sign Out</MudMenuItem>
+                </ChildContent>
+            </MudMenu>
+        </MudStack>
+    </MudAppBar>
+    <MudDrawer Fixed="true" Elevation="0" Overlay="false" ClipMode="DrawerClipMode.Always" MiniWidth="72px"
+        Variant="DrawerVariant.Mini" @bind-Open="@_drawerOpen">
         <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.ExtraLarge">
             @Body
-        </article>
-    </main>
-</div>
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+}
+
+@code {
+    bool _drawerOpen = true;
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}
