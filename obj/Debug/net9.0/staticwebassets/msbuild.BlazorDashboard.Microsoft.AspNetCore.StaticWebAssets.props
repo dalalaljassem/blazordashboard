@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>d3lknhkxj0</Fingerprint>
-      <Integrity>N30Ykp8tgq+PGlyIHZhCSayy1WLK6w1LGE8P73P2ASM=</Integrity>
+      <Fingerprint>cb0dlx50i5</Fingerprint>
+      <Integrity>KBTMaTECqlDShtyP8dJft2mEj9jVP9JMqSQ48kfy5kY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\app.css'))</OriginalItemSpec>
@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ofkv4yell3</Fingerprint>
-      <Integrity>zBp60NAZ3bHTLQ7LWIugrCbOQdhiXdbDZjSLJfg6KOw=</Integrity>
+      <Fingerprint>cfs0wbahkk</Fingerprint>
+      <Integrity>GGQZxH5G0WiJdP5tHUaI1yNPF5AROgwekzUmtSLJoEw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\tailwind.css'))</OriginalItemSpec>

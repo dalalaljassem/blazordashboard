@@ -1942,9 +1942,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/dalalaljassem/BlazorDashboardClean/BlazorDashboard.csproj",
-      "projectName": "BlazorDashboard",
-      "projectPath": "/Users/dalalaljassem/BlazorDashboardClean/BlazorDashboard.csproj",
+      "projectUniqueName": "/Users/dalalaljassem/BlazorDashboardClean/BlazorDashboardClean.csproj",
+      "projectName": "BlazorDashboardClean",
+      "projectPath": "/Users/dalalaljassem/BlazorDashboardClean/BlazorDashboardClean.csproj",
       "packagesPath": "/Users/dalalaljassem/.nuget/packages/",
       "outputPath": "/Users/dalalaljassem/BlazorDashboardClean/obj/",
       "projectStyle": "PackageReference",

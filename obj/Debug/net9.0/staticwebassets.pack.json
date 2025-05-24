@@ -5,8 +5,8 @@
       "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
     },
     {
-      "Id": "/Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/scopedcss/bundle/BlazorDashboard.styles.css",
-      "PackagePath": "staticwebassets/BlazorDashboard.styles.css"
+      "Id": "/Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/scopedcss/bundle/BlazorDashboardClean.styles.css",
+      "PackagePath": "staticwebassets/BlazorDashboardClean.styles.css"
     },
     {
       "Id": "/Users/dalalaljassem/BlazorDashboardClean/wwwroot/css/app.css",
@@ -213,24 +213,24 @@
       "PackagePath": "staticwebassets/sample-data/weather.json"
     },
     {
-      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.BlazorDashboard.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.BlazorDashboardClean.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
-      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.BlazorDashboard.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.BlazorDashboardClean.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.BlazorDashboard.props",
-      "PackagePath": "build\\BlazorDashboard.props"
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.BlazorDashboardClean.props",
+      "PackagePath": "build\\BlazorDashboardClean.props"
     },
     {
-      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.BlazorDashboard.props",
-      "PackagePath": "buildMultiTargeting\\BlazorDashboard.props"
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.BlazorDashboardClean.props",
+      "PackagePath": "buildMultiTargeting\\BlazorDashboardClean.props"
     },
     {
-      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.BlazorDashboard.props",
-      "PackagePath": "buildTransitive\\BlazorDashboard.props"
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.BlazorDashboardClean.props",
+      "PackagePath": "buildTransitive\\BlazorDashboardClean.props"
     }
   ],
   "ElementsToRemove": []
