@@ -2,6 +2,32 @@
 
 <BlazePage Title="Dashboard">
     <MudGrid>
+        <!-- Payment Pending -->
+        <MudItem xs="12" md="6">
+            <MudPaper Elevation="0" Class="flex flex-col rounded-xl p-4 bg-white ">
+                <div class="flex items-center ">
+                    <div class="flex flex-col">
+                        <h6>Pending Payments</h6>
+                    </div>
+                    <div class="ml-auto text-sm font-medium" style="color: red">
+                        <span class="statcard-value">KD 3,200</span>
+                    </div>
+                </div>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" md="6">
+            <MudPaper Elevation="0" Class="flex flex-col rounded-xl p-4 bg-white ">
+                <div class="flex items-center ">
+                    <div class="flex flex-col">
+                        <h6>Collected Payments</h6>
+                    </div>
+                    <div class="ml-auto text-sm font-medium" style="color: green">
+                        <span class="statcard-value">KD 21,450</span>
+                    </div>
+                </div>
+            </MudPaper>
+        </MudItem>
+
         <!-- Card 1 -->
         <MudItem xs="12" sm="6" lg="4">
             <StatCard Title="Total Properties" Value="71,897" Icon="@Icons.Material.Filled.HomeWork" Change="122"
@@ -49,6 +75,38 @@
                 }
             </MudPaper>
         </MudItem>
+
+
+        <MudGrid Class="mt-6">
+            <MudItem xs="12">
+                <MudPaper Class="p-4 rounded-lg">
+                    <MudText Typo="Typo.h6" Class="mb-2">Latest Activity</MudText>
+                    <MudList Dense="true">
+                        <MudListItem>
+                            <MudListItemIcon>
+                                <MudIcon Icon="@Icons.Material.Outlined.ReceiptLong" />
+                            </MudListItemIcon>
+                            <MudListItemText>Payment received from Tenant #148 - KD 350</MudListItemText>
+                            <MudListItemMeta>10 mins ago</MudListItemMeta>
+                        </MudListItem>
+                        <MudListItem>
+                            <MudListItemIcon>
+                                <MudIcon Icon="@Icons.Material.Outlined.AddHomeWork" />
+                            </MudListItemIcon>
+                            <MudListItemText>New lease signed for Unit #302</MudListItemText>
+                            <MudListItemMeta>1 hour ago</MudListItemMeta>
+                        </MudListItem>
+                        <MudListItem>
+                            <MudListItemIcon>
+                                <MudIcon Icon="@Icons.Material.Outlined.PersonAdd" />
+                            </MudListItemIcon>
+                            <MudListItemText>New tenant registered: Sarah Y.</MudListItemText>
+                            <MudListItemMeta>Yesterday</MudListItemMeta>
+                        </MudListItem>
+                    </MudList>
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
 
 
         <!-- Larger single card -->
