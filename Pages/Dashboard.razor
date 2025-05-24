@@ -21,21 +21,35 @@
         </MudItem>
 
 
-        <!-- Double column row -->
-        <MudItem xs="12" sm="6">
-            <MudGrid>
-                <MudItem xs="12">
-                    <MudPaper Elevation="0" Class="pa-4 rounded-lg h-[200px]">
-                        <!-- Insert Chart or Content -->
-                    </MudPaper>
-                </MudItem>
-                <MudItem xs="12">
-                    <MudPaper Elevation="0" Class="pa-4 rounded-lg h-[200px]">
-                        <!-- Insert Chart or Content -->
-                    </MudPaper>
-                </MudItem>
-            </MudGrid>
+        <!-- Second Row: Charts -->
+        <MudItem xs="12" md="8">
+            <MudPaper Elevation="0" Class="h-[320px] p-4 flex flex-col justify-between rounded-lg">
+                <MudText Typo="Typo.h6" Class="mb-2">Monthly Revenue</MudText>
+                @if (barDatasets?.Length > 0)
+                {
+                    <MudChart ChartType="ChartType.Bar" Labels="@barLabels" Datasets="@barDatasets" />
+                }
+                else
+                {
+                    <MudText Typo="Typo.body2" Color="Color.Secondary">Loading data...</MudText>
+                }
+            </MudPaper>
         </MudItem>
+
+        <MudItem xs="12" md="4">
+            <MudPaper Elevation="0" Class="h-[320px] p-4 flex flex-col justify-between rounded-lg">
+                <MudText Typo="Typo.h6" Class="mb-2">Revenue by Category</MudText>
+                @if (pieDatasets?.Length > 0)
+                {
+                    <MudChart ChartType="ChartType.Pie" Labels="@pieLabels" Datasets="@pieDatasets" />
+                }
+                else
+                {
+                    <MudText Typo="Typo.body2" Color="Color.Secondary">Loading data...</MudText>
+                }
+            </MudPaper>
+        </MudItem>
+
 
         <!-- Larger single card -->
         <MudItem xs="12" sm="6">
@@ -58,9 +72,31 @@
 </BlazePage>
 
 
-
 @code {
+    string[] barLabels = { "Jan", "Feb", "Mar", "Apr", "May", "Jun" };
+    ChartSeries[] barDatasets = Array.Empty<ChartSeries>();
+    string[] pieLabels = { "Rent", "Utilities", "Services" };
+    ChartSeries[] pieDatasets = Array.Empty<ChartSeries>();
 
-    private int _productsCount = 1204;
+    protected override void OnInitialized()
+    {
+        // Simulate data being available right away
+        barDatasets = new[]
+        {
+new ChartSeries
+{
+Name = "Sales",
+Data = new double[] { 1000, 1800, 1200, 2500, 1900, 3000 }
+}
+};
 
+        pieDatasets = new[]
+        {
+new ChartSeries
+{
+Name = "Revenue",
+Data = new double[] { 4500, 1200, 800 }
+}
+};
+    }
 }
