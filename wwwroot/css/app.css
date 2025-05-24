@@ -129,3 +129,9 @@ code {
   .light-gray{
    color:var(--mud-palette-lines-inputs);
   }
+
+  .profile-chip{
+    border: 1px solid #e7e7e7 !important;
+    background-color: transparent !important;
+}
+  
