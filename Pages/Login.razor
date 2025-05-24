@@ -1,0 +1,83 @@
+@using MudBlazor
+
+@page "/login"
+
+<div class="min-h-screen bg-white flex flex-col justify-center">
+    <div class="flex flex-col align-center px-5">
+        <div>
+            <h4 class="mt-4 text-center font-bold ">Sign in to your account</h4>
+        </div>
+        <div class="login-fields">
+            <EditForm Model="@loginModel" OnValidSubmit="@HandleLogin">
+                <div class="flex flex-col gap-4">
+                    <div class="mt-4">
+                        <MudTextField @bind-Value="TextValue" Label="Email Address" Variant="Variant.Outlined">
+                        </MudTextField>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="flex items-center justify-between">
+                            <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined"
+                                InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon"
+                                OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" />
+
+                        </div>
+                        <a href="#" class="text-sm font-bold text-primary hover:text-primary">Forgot
+                            password?</a>
+
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit" class="w-full flex justify-center rounded-md bg-primary text-white p-2">
+                            Sign in
+                        </button>
+                    </div>
+                </div>
+            </EditForm>
+
+
+            <p class="mt-10 text-center text-sm text-gray-500">
+                Not a member?
+                <a href="/register" class="font-bold text-primary hover:text-primary">Start a 14 day free
+                    trial</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private LoginModel loginModel = new();
+
+    private void HandleLogin()
+    {
+        // Handle login logic here
+    }
+
+    private class LoginModel
+    {
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+    public string Password { get; set; } = "superstrong123";
+
+    bool isShow;
+    public string TextValue { get; set; }
+    InputType PasswordInput = InputType.Password;
+    string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+
+    void ButtonTestclick()
+    {
+        @if (isShow)
+        {
+            isShow = false;
+            PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+            PasswordInput = InputType.Password;
+        }
+        else
+        {
+            isShow = true;
+            PasswordInputIcon = Icons.Material.Filled.Visibility;
+            PasswordInput = InputType.Text;
+        }
+    }
+}

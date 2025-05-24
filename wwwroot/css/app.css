@@ -135,3 +135,15 @@ code {
     background-color: transparent !important;
 }
   
+.statcard-value {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.bg-primary{
+    background: var(--bs-blue);
+}
+
+.login-fields{
+    width: 29%;
+}

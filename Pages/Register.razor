@@ -1,0 +1,48 @@
+@page "/register"
+@using MudBlazor
+
+<div class="min-h-screen bg-white flex flex-col justify-center">
+    <div class="flex flex-col align-center px-5">
+        <div>
+            <h4 class="mt-4 text-center font-bold">Create your account</h4>
+        </div>
+        <div class="login-fields">
+            <EditForm Model="@registerModel" OnValidSubmit="@HandleRegister">
+                <div class="flex flex-col gap-4">
+                    <MudTextField @bind-Value="registerModel.Username" Label="Username" Variant="Variant.Outlined" />
+                    <MudTextField @bind-Value="registerModel.Email" Label="Email Address" Variant="Variant.Outlined" />
+                    <MudTextField @bind-Value="registerModel.Password" Label="Password" Variant="Variant.Outlined"
+                        InputType="InputType.Password" />
+                    <MudTextField @bind-Value="registerModel.ConfirmPassword" Label="Repeat Password"
+                        Variant="Variant.Outlined" InputType="InputType.Password" />
+
+                    <button type="submit" class="w-full flex justify-center rounded-md bg-primary text-white p-2">
+                        Register
+                    </button>
+                </div>
+            </EditForm>
+
+            <p class="mt-10 text-center text-sm text-gray-500">
+                Already have an account?
+                <a href="/login" class="font-bold text-primary hover:text-primary">Sign in</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private RegisterModel registerModel = new();
+
+    private void HandleRegister()
+    {
+        // Registration logic here
+    }
+
+    private class RegisterModel
+    {
+        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public string ConfirmPassword { get; set; } = string.Empty;
+    }
+}

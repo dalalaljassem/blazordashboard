@@ -1,0 +1,66 @@
+﻿@page "/"
+
+<BlazePage Title="Dashboard">
+    <MudGrid>
+        <!-- Card 1 -->
+        <MudItem xs="12" sm="6" lg="4">
+            <StatCard Title="Total Properties" Value="71,897" Icon="@Icons.Material.Filled.HomeWork" Change="122"
+                IsPositiveChange="true" />
+        </MudItem>
+
+        <!-- Card 2 -->
+        <MudItem xs="12" sm="6" lg="4">
+            <StatCard Title="Total Leases" Value="71,897" Icon="@Icons.Material.Filled.NoteAdd" Change="90"
+                IsPositiveChange="false" />
+        </MudItem>
+
+        <!-- Card 3 -->
+        <MudItem xs="12" sm="6" lg="4">
+            <StatCard Title="Total Tenants" Value="71,897" Icon="@Icons.Material.Filled.Groups" Change="122"
+                IsPositiveChange="true" />
+        </MudItem>
+
+
+        <!-- Double column row -->
+        <MudItem xs="12" sm="6">
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudPaper Elevation="0" Class="pa-4 rounded-lg h-[200px]">
+                        <!-- Insert Chart or Content -->
+                    </MudPaper>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudPaper Elevation="0" Class="pa-4 rounded-lg h-[200px]">
+                        <!-- Insert Chart or Content -->
+                    </MudPaper>
+                </MudItem>
+            </MudGrid>
+        </MudItem>
+
+        <!-- Larger single card -->
+        <MudItem xs="12" sm="6">
+            <MudPaper Elevation="0" Class="pa-4 rounded-lg h-full">
+                <!-- Insert Large Widget -->
+            </MudPaper>
+        </MudItem>
+
+        <!-- Three equal cards -->
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="0" Class="pa-4 rounded-lg h-[200px]"></MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="0" Class="pa-4 rounded-lg h-[200px]"></MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="4">
+            <MudPaper Elevation="0" Class="pa-4 rounded-lg h-[200px]"></MudPaper>
+        </MudItem>
+    </MudGrid>
+</BlazePage>
+
+
+
+@code {
+
+    private int _productsCount = 1204;
+
+}

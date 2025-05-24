@@ -1,0 +1,31 @@
+@using MudBlazor
+
+<MudPaper Elevation="0" Class="flex flex-col rounded-xl p-4 bg-white ">
+    <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg flex items-center p-2 justify-center bg-primary text-white">
+            <MudIcon Icon="@Icon" Size="Size.Medium" />
+        </div>
+        <div class="flex flex-col">
+            <span class="text-gray-500 text-sm">@Title</span>
+            <span class="statcard-value font-semibold">@Value</span>
+        </div>
+        @if (!string.IsNullOrWhiteSpace(Change))
+        {
+            <div class="ml-auto text-sm font-medium" style="color: @(IsPositiveChange ? "green" : "red")">
+                <MudIcon
+                    Icon="@(IsPositiveChange ? Icons.Material.Rounded.ArrowUpward : Icons.Material.Rounded.ArrowDownward)"
+                    Size="Size.Small" />
+                @Change
+            </div>
+        }
+    </div>
+
+</MudPaper>
+
+@code {
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string Value { get; set; }
+    [Parameter] public string Icon { get; set; }
+    [Parameter] public string Change { get; set; } = null;
+    [Parameter] public bool IsPositiveChange { get; set; } = true;
+}
