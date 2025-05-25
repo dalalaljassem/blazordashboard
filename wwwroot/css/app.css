@@ -162,6 +162,9 @@ code {
     color: white !important;
 }
 
+.mud-chart.mud-chart-legend-bottom{
+    align-self: center !important;
+}
 
 /* Font weights */
 .font-regular { font-weight: 400; }

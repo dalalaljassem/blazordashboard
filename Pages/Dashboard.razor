@@ -69,7 +69,8 @@
             <MudPaper Elevation="0" Class="h-[320px] p-4 flex flex-col justify-between rounded-lg">
                 <MudText Typo="Typo.h6" Class="mb-2">Revenue Overview</MudText>
                 <MudChart ChartType="ChartType.StackedBar" ChartSeries="@_series" @bind-SelectedIndex="_index"
-                    XAxisLabels="@_xAxisLabels" Width="@_width" Height="@_height" AxisChartOptions="_axisChartOptions">
+                    class="flex items-center" XAxisLabels="@_xAxisLabels" Width="@_width" Height="@_height"
+                    AxisChartOptions="_axisChartOptions">
                 </MudChart>
             </MudPaper>
         </MudItem>
