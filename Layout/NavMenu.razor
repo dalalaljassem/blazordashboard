@@ -4,26 +4,35 @@
     <!-- Top links -->
     <div>
         <MudStack Spacing="3">
-            <NavMenuLinks Content="Dashboard" Href="/" Icon="@Icons.Material.Outlined.Dashboard"
-                Match="NavLinkMatch.All" />
+            @* <NavMenuLinks Content="Dashboard" Href="/" Icon="Dashboard" Match="NavLinkMatch.All" /> *@
+
 
             <!-- Section: Properties -->
-            <NavMenuLinks Content="Properties" Href="/properties" Icon="@Icons.Material.Outlined.HomeWork"
-                Match="NavLinkMatch.Prefix" />
+            @* <NavMenuLinks Content="Properties" Href="/properties" Icon="HomeWork" Match="NavLinkMatch.Prefix" /> *@
             @* <NavMenuLinks Content="Add Property" Href="/properties/add" Icon="@Icons.Material.Outlined.AddBusiness"
             Match="NavLinkMatch.Prefix" /> *@
 
             <!-- Section: Tenants -->
-            <NavMenuLinks Content="Tenants" Href="/tenants" Icon="@Icons.Material.Outlined.Groups"
-                Match="NavLinkMatch.Prefix" />
+            @* <NavMenuLinks Content="Tenants" Href="/tenants" Icon="Groups" Match="NavLinkMatch.Prefix" /> *@
             @* <NavMenuLinks Content="Add Tenant" Href="/tenants/add" Icon="@Icons.Material.Outlined.PersonAdd"
             Match="NavLinkMatch.Prefix" /> *@
 
             <!-- Section: Units -->
-            <NavMenuLinks Content="Units" Href="/units" Icon="@Icons.Material.Outlined.Apartment"
-                Match="NavLinkMatch.Prefix" />
+            @* <NavMenuLinks Content="Units" Href="/units" Icon="Apartment" Match="NavLinkMatch.Prefix" /> *@
             @* <NavMenuLinks Content="Add Unit" Href="/units/add" Icon="@Icons.Material.Rounded.DomainAdd"
             Match="NavLinkMatch.Prefix" /> *@
+
+            <NavMenuLinks Content="Dashboard" Href="/" IconOutlined="@Icons.Material.Outlined.Dashboard"
+                IconRounded="@Icons.Material.Rounded.Dashboard" Match="NavLinkMatch.All" />
+
+            <NavMenuLinks Content="Properties" Href="/properties" IconOutlined="@Icons.Material.Outlined.HomeWork"
+                IconRounded="@Icons.Material.Rounded.HomeWork" Match="NavLinkMatch.Prefix" />
+
+            <NavMenuLinks Content="Tenants" Href="/tenants" IconOutlined="@Icons.Material.Outlined.Groups"
+                IconRounded="@Icons.Material.Rounded.Groups" Match="NavLinkMatch.Prefix" />
+
+            <NavMenuLinks Content="Units" Href="/units" IconOutlined="@Icons.Material.Outlined.Apartment"
+                IconRounded="@Icons.Material.Rounded.Apartment" Match="NavLinkMatch.Prefix" />
 
         </MudStack>
     </div>
@@ -31,7 +40,7 @@
     <!-- Sign Out pinned to bottom -->
     <div class="pt-4">
         <MudDivider />
-        <NavMenuLinks Content="Sign Out" Href="/logout" Icon="@Icons.Material.Outlined.Logout"
-            Match="NavLinkMatch.All" />
+        <NavMenuLinks Content="Sign out" Href="/logout" IconOutlined="@Icons.Material.Outlined.Logout"
+            IconRounded="@Icons.Material.Rounded.Logout" Match="NavLinkMatch.Prefix" />
     </div>
 </MudNavMenu>

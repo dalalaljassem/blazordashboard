@@ -1,16 +1,33 @@
 ﻿@page "/"
 
 <BlazePage Title="Dashboard">
+    <div class="flex flex-row pb-2 items-center">
+        <div class="flex flex-col">
+            <h6 class="text-gray">Greetings Dalal</h6>
+            <h4 class="font-bold">Welcome to your Dashboard!</h4>
+        </div>
+        <div class="ml-auto w-[250px]">
+            <MudSelect T="string" @bind-Value="selectedValue" Placeholder="This Month" Variant="Variant.Outlined"
+                Dense="true" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.ArrowDropDown"
+                Class="rounded-md text-sm font-medium text-primary bg-transparent">
+                @foreach (var item in items)
+                {
+                    <MudSelectItem Value="@item">@item</MudSelectItem>
+                }
+            </MudSelect>
+        </div>
+
+    </div>
     <MudGrid>
         <!-- Payment Pending -->
         <MudItem xs="12" md="6">
             <MudPaper Elevation="0" Class="flex flex-col rounded-xl p-4 bg-white ">
                 <div class="flex items-center ">
                     <div class="flex flex-col">
-                        <h6>Pending Payments</h6>
+                        <h6 class="text-gray">Pending Payments</h6>
                     </div>
-                    <div class="ml-auto text-sm font-medium" style="color: red">
-                        <span class="statcard-value">KD 3,200</span>
+                    <div class="ml-auto text-sm">
+                        <span class="statcard-value font-bold text-red">KD 3,200</span>
                     </div>
                 </div>
             </MudPaper>
@@ -19,10 +36,10 @@
             <MudPaper Elevation="0" Class="flex flex-col rounded-xl p-4 bg-white ">
                 <div class="flex items-center ">
                     <div class="flex flex-col">
-                        <h6>Collected Payments</h6>
+                        <h6 class="text-gray">Collected Payments</h6>
                     </div>
-                    <div class="ml-auto text-sm font-medium" style="color: green">
-                        <span class="statcard-value">KD 21,450</span>
+                    <div class="ml-auto text-sm">
+                        <span class="statcard-value font-bold text-green">KD 21,450</span>
                     </div>
                 </div>
             </MudPaper>
@@ -50,63 +67,27 @@
         <!-- Second Row: Charts -->
         <MudItem xs="12" md="8">
             <MudPaper Elevation="0" Class="h-[320px] p-4 flex flex-col justify-between rounded-lg">
-                <MudText Typo="Typo.h6" Class="mb-2">Monthly Revenue</MudText>
-                @if (barDatasets?.Length > 0)
-                {
-                    <MudChart ChartType="ChartType.Bar" Labels="@barLabels" Datasets="@barDatasets" />
-                }
-                else
-                {
-                    <MudText Typo="Typo.body2" Color="Color.Secondary">Loading data...</MudText>
-                }
+                <MudText Typo="Typo.h6" Class="mb-2">Revenue Overview</MudText>
+                <MudChart ChartType="ChartType.StackedBar" ChartSeries="@_series" @bind-SelectedIndex="_index"
+                    XAxisLabels="@_xAxisLabels" Width="@_width" Height="@_height" AxisChartOptions="_axisChartOptions">
+                </MudChart>
             </MudPaper>
         </MudItem>
 
         <MudItem xs="12" md="4">
             <MudPaper Elevation="0" Class="h-[320px] p-4 flex flex-col justify-between rounded-lg">
-                <MudText Typo="Typo.h6" Class="mb-2">Revenue by Category</MudText>
-                @if (pieDatasets?.Length > 0)
-                {
-                    <MudChart ChartType="ChartType.Pie" Labels="@pieLabels" Datasets="@pieDatasets" />
-                }
-                else
-                {
-                    <MudText Typo="Typo.body2" Color="Color.Secondary">Loading data...</MudText>
-                }
+                <MudText Typo="Typo.h6" Class="mb-2">Property Overview</MudText>
+                <MudChart ChartType="ChartType.Donut" Width="300px" Height="300px" InputData="@data"
+                    InputLabels="@labels">
+                    <CustomGraphics>
+                        <text class="donut-inner-text" x="50%" y="35%" dominant-baseline="middle" text-anchor="middle"
+                            fill="black" font-family="Helvetica" font-size="20">Total</text>
+                        <text class="donut-inner-text" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+                            fill="black" font-family="Helvetica" font-size="50">@data.Sum().ToString()</text>
+                    </CustomGraphics>
+                </MudChart>
             </MudPaper>
         </MudItem>
-
-
-        <MudGrid Class="mt-6">
-            <MudItem xs="12">
-                <MudPaper Class="p-4 rounded-lg">
-                    <MudText Typo="Typo.h6" Class="mb-2">Latest Activity</MudText>
-                    <MudList Dense="true">
-                        <MudListItem>
-                            <MudListItemIcon>
-                                <MudIcon Icon="@Icons.Material.Outlined.ReceiptLong" />
-                            </MudListItemIcon>
-                            <MudListItemText>Payment received from Tenant #148 - KD 350</MudListItemText>
-                            <MudListItemMeta>10 mins ago</MudListItemMeta>
-                        </MudListItem>
-                        <MudListItem>
-                            <MudListItemIcon>
-                                <MudIcon Icon="@Icons.Material.Outlined.AddHomeWork" />
-                            </MudListItemIcon>
-                            <MudListItemText>New lease signed for Unit #302</MudListItemText>
-                            <MudListItemMeta>1 hour ago</MudListItemMeta>
-                        </MudListItem>
-                        <MudListItem>
-                            <MudListItemIcon>
-                                <MudIcon Icon="@Icons.Material.Outlined.PersonAdd" />
-                            </MudListItemIcon>
-                            <MudListItemText>New tenant registered: Sarah Y.</MudListItemText>
-                            <MudListItemMeta>Yesterday</MudListItemMeta>
-                        </MudListItem>
-                    </MudList>
-                </MudPaper>
-            </MudItem>
-        </MudGrid>
 
 
         <!-- Larger single card -->
@@ -131,30 +112,25 @@
 
 
 @code {
-    string[] barLabels = { "Jan", "Feb", "Mar", "Apr", "May", "Jun" };
-    ChartSeries[] barDatasets = Array.Empty<ChartSeries>();
-    string[] pieLabels = { "Rent", "Utilities", "Services" };
-    ChartSeries[] pieDatasets = Array.Empty<ChartSeries>();
+    private string selectedValue;
+    private List<string> items = new() { "Last Month", "Last 2 Months", "Last 3 Months", "Last 4 Months" };
 
-    protected override void OnInitialized()
-    {
-        // Simulate data being available right away
-        barDatasets = new[]
-        {
-new ChartSeries
+    private int _index = -1; //default value cannot be 0 -> first selectedindex is 0.
+    private string _width = "650px";
+    private string _height = "350px";
+    private AxisChartOptions _axisChartOptions = new AxisChartOptions();
+
+    private List<ChartSeries> _series = new List<ChartSeries>()
 {
-Name = "Sales",
-Data = new double[] { 1000, 1800, 1200, 2500, 1900, 3000 }
-}
+new ChartSeries() { Name = "Revenue Total", Data = new double[] { 40, 20, 25, 27, 46, 60, 48, 80, 15 } },
+new ChartSeries() { Name = "Property Sold", Data = new double[] { 19, 24, 35, 13, 28, 15, 13, 16, 31 } },
+new ChartSeries() { Name = "Property Rented", Data = new double[] { 8, 6, 11, 13, 4, 16, 10, 16, 18 } },
 };
 
-        pieDatasets = new[]
-        {
-new ChartSeries
-{
-Name = "Revenue",
-Data = new double[] { 4500, 1200, 800 }
-}
-};
-    }
+    private int Index = -1; //default value cannot be 0 -> first selectedindex is 0.
+
+    public double[] data = { 25, 77, 28, 5 };
+    public string[] labels = { "Apartments", "Villas", "Duplex Houses", "Rooms" };
+
+    private string[] _xAxisLabels = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" };
 }
