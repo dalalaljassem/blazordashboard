@@ -3,6 +3,9 @@
 .\@container {
   container-type: inline-size;
 }
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .pointer-events-auto {
   pointer-events: auto;
 }

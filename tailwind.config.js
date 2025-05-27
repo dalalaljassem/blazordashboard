@@ -6,5 +6,11 @@ module.exports = {
     "./**/*.html",
     "./**/*.razor",
   ],
-  // ...
+  theme: {
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
+    },
+  },
 };
