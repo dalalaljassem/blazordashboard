@@ -1,0 +1,44 @@
+@using MudBlazor
+
+<MudDrawer @bind-Open="Open" Anchor="Anchor.End" Variant="DrawerVariant.Temporary" Elevation="1" Overlay="true"
+    DisableResizeListener="true" Class="flex flex-col bg-white z-50" Width="350px">
+
+    <!-- Optional Header -->
+    @if (!string.IsNullOrWhiteSpace(Title))
+    {
+        <div class="px-6 pt-4 pb-2">
+            <MudText Typo="Typo.h6">@Title</MudText>
+        </div>
+    }
+
+    <!-- Main Content -->
+    <MudPaper Class="flex-1 px-6 py-4 bg-white shadow-none w-100">
+        @ChildContent
+    </MudPaper>
+
+    <!-- Footer -->
+    @if (FooterContent is not null)
+    {
+        <MudPaper Class="px-6 py-3 bg-gray-50 border-t border-gray flex justify-end gap-2">
+            @FooterContent
+        </MudPaper>
+    }
+
+</MudDrawer>
+
+@code {
+    [Parameter]
+    public bool Open { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> OpenChanged { get; set; }
+
+    [Parameter]
+    public string Title { get; set; } = "";
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? FooterContent { get; set; }
+}

@@ -1,42 +1,98 @@
 @page "/properties"
 @using MudBlazor
 
-<MudItem xs="12" md="12" lg="12">
-    <MudPaper Class="p-4 rounded-lg shadow-sm bg-white">
-        <div class="flex justify-between items-center pb-4">
-            <MudText Typo="Typo.h6" Class="font-semibold text-primary">Newly Added Properties</MudText>
-            @* <MudButton Variant="Variant.Outlined" EndIcon="@Icons.Material.Filled.KeyboardArrowRight"
-            Class="text-primary border-primary" OnClick="@(() => Nav.NavigateTo("/properties"))">
-            See All
-            </MudButton> *@
-        </div>
+<!-- ✅ Header Row: Title + Controls -->
+<div class="flex flex-wrap justify-between items-center mb-4 gap-2">
 
-        <MudTable Items="properties" Dense="true" Hover="true" Elevation="0" Class="text-sm text-gray rounded-lg">
-            <HeaderContent>
-                <MudTh>#</MudTh>
-                <MudTh>Name</MudTh>
-                <MudTh>Address</MudTh>
-                <MudTh>Agent</MudTh>
-                <MudTh>Price</MudTh>
-                <MudTh>Status</MudTh>
-            </HeaderContent>
-            <RowTemplate>
-                <MudTd DataLabel="#">@context.Id</MudTd>
-                <MudTd DataLabel="Name">@context.Name</MudTd>
-                <MudTd DataLabel="Address">@context.Address</MudTd>
-                <MudTd DataLabel="Agent">@context.Agent</MudTd>
-                <MudTd DataLabel="Price">@context.Price KWD</MudTd>
-                <MudTd DataLabel="Status">
-                    <MudChip T="string" Color="@GetStatusColor(context.Status)">
-                        @context.Status
-                    </MudChip>
-                </MudTd>
-            </RowTemplate>
-        </MudTable>
-    </MudPaper>
-</MudItem>
+    <!-- Title -->
+    <MudText Typo="Typo.h6" Class="font-semibold text-gray-800">
+        Property List
+    </MudText>
+
+    <!-- Controls: Search + Buttons -->
+    <div class="flex flex-wrap gap-2 items-center">
+        <!-- Filter -->
+        <MudIconButton Icon="@Icons.Material.Filled.FilterList" aria-label="Filter"
+            OnClick="() => _filterDrawerOpen = true" />
+
+        <!-- Add Button -->
+        <MudButton StartIcon="@Icons.Material.Filled.Add" Style="background-color:  var(--bs-blue); color: white;"
+            class="">
+            Add Property
+        </MudButton>
+    </div>
+</div>
+
+<MudPaper Class="rounded-lg shadow-sm p-4 bg-white">
+    <!-- ✅ Table -->
+    <MudTable Items="properties" Dense="true" Hover="true" Elevation="0" RowsPerPage="10"
+        Class="text-sm text-gray rounded-lg">
+        <HeaderContent>
+            <MudTh>#</MudTh>
+            <MudTh>Name</MudTh>
+            <MudTh>Address</MudTh>
+            <MudTh>Agent</MudTh>
+            <MudTh>Price</MudTh>
+            <MudTh>Status</MudTh>
+            <MudTh>Actions</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="#">@context.Id</MudTd>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Address">@context.Address</MudTd>
+            <MudTd DataLabel="Agent">@context.Agent</MudTd>
+            <MudTd DataLabel="Price">@context.Price KWD</MudTd>
+            <MudTd DataLabel="Status">
+                <MudChip T="string" Color="@GetStatusColor(context.Status)">
+                    @context.Status
+                </MudChip>
+            </MudTd>
+            <MudTd Align="Align.Right">
+                <MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+                    <ActivatorContent>
+                        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" />
+                    </ActivatorContent>
+                    <ChildContent>
+                        <MudMenuItem Label="Edit"></MudMenuItem>
+                        <MudMenuItem Label="Delete"></MudMenuItem>
+                    </ChildContent>
+                </MudMenu>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+
+</MudPaper>
+
+
+<Offcanvas @bind-Open="_filterDrawerOpen" Title="Filter Properties">
+    <ChildContent>
+        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
+
+        <MudSelect T="string" Label="Status" Variant="Variant.Outlined" Class="mb-4 w-100">
+            <MudSelectItem Value=@("Active")>Active</MudSelectItem>
+            <MudSelectItem Value=@("Inactive")>Inactive</MudSelectItem>
+        </MudSelect>
+
+        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" FullWidth="true" />
+
+        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
+
+        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
+    </ChildContent>
+
+    <FooterContent>
+        <div class="d-flex flex-end gap-6">
+            <MudButton Variant="Variant.Text" OnClick="() => _filterDrawerOpen = false">Cancel
+            </MudButton>
+            <MudButton Variant="Variant.Text" Style="background-color:  var(--bs-blue); color: white;"
+                OnClick="ApplyFilters">Apply</MudButton>
+        </div>
+    </FooterContent>
+</Offcanvas>
 
 @code {
+    private string _searchText = "";
+
     public class Property
     {
         public int Id { get; set; }
@@ -63,4 +119,13 @@ new Property { Id = 2, Name = "DJ's Dungeon", Address = "Khaldiya", Agent = "MCR
             _ => Color.Default
         };
     }
+
+    private bool _filterDrawerOpen = false;
+
+    private void ApplyFilters()
+    {
+        // Your filtering logic here
+        _filterDrawerOpen = false;
+    }
+
 }
