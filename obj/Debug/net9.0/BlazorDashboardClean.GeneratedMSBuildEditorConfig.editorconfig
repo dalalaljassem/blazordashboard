@@ -51,6 +51,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/dalalaljassem/BlazorDashboardClean/Pages/Properties/PropertyDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvcGVydGllcy9Qcm9wZXJ0eURldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/dalalaljassem/BlazorDashboardClean/Pages/Properties/PropertyForm.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvcGVydGllcy9Qcm9wZXJ0eUZvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

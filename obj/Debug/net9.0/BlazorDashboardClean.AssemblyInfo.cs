@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BlazorDashboardClean")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de0220509300048ea923b5d618e1bae7db9bd119")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb73ec8943a6a859715a2e0e8f2dcfbcdbe6b905")]
 [assembly: System.Reflection.AssemblyProductAttribute("BlazorDashboardClean")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BlazorDashboardClean")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

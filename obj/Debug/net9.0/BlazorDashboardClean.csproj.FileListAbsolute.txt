@@ -1095,10 +1095,10 @@
 /Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/ref/BlazorDashboardClean.dll
 /Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/compressed/lp9uu1u2ox-ceoavz82hd.gz
 /Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/compressed/nplhvbysh2-s19r1vfupx.gz
-/Users/dalalaljassem/BlazorDashboardClean/bin/Debug/net9.0/wwwroot/_framework/BlazorDashboardClean.22ttt4tnag.pdb
-/Users/dalalaljassem/BlazorDashboardClean/bin/Debug/net9.0/wwwroot/_framework/BlazorDashboardClean.bv9e98idlk.wasm
-/Users/dalalaljassem/BlazorDashboardClean/bin/Debug/net9.0/wwwroot/_framework/BlazorDashboardClean.bv9e98idlk.wasm.gz
-/Users/dalalaljassem/BlazorDashboardClean/bin/Debug/net9.0/wwwroot/_framework/BlazorDashboardClean.22ttt4tnag.pdb.gz
-/Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/compressed/hmqehlbak4-bv9e98idlk.gz
-/Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/compressed/j533s9s52m-22ttt4tnag.gz
-/Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/compressed/1byzr78w1k-oy7rhebuil.gz
+/Users/dalalaljassem/BlazorDashboardClean/bin/Debug/net9.0/wwwroot/_framework/BlazorDashboardClean.nyq4x0winy.pdb
+/Users/dalalaljassem/BlazorDashboardClean/bin/Debug/net9.0/wwwroot/_framework/BlazorDashboardClean.734fsv61z6.wasm
+/Users/dalalaljassem/BlazorDashboardClean/bin/Debug/net9.0/wwwroot/_framework/BlazorDashboardClean.734fsv61z6.wasm.gz
+/Users/dalalaljassem/BlazorDashboardClean/bin/Debug/net9.0/wwwroot/_framework/BlazorDashboardClean.nyq4x0winy.pdb.gz
+/Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/compressed/hmqehlbak4-734fsv61z6.gz
+/Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/compressed/j533s9s52m-nyq4x0winy.gz
+/Users/dalalaljassem/BlazorDashboardClean/obj/Debug/net9.0/compressed/1byzr78w1k-zx0t6hqh3f.gz
