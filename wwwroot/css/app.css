@@ -136,7 +136,7 @@ code {
 }
   
 .statcard-value {
-    font-size: 25px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -155,6 +155,14 @@ code {
     width: 29%;
 }
 
+.mud-primary-hover{
+    background-color: var(--bs-blue) !important;
+    color: white !important;
+}
+
+.mud-primary-text{
+    color: var(--bs-blue) !important;
+}
 
 .mud-list-item-clickable:focus:not(.mud-selected-item),
 .mud-list-item-clickable:active {
@@ -162,29 +170,43 @@ code {
     color: white !important;
 }
 
+.mud-selected-item{
+    background-color: var(--bs-blue) !important;
+    color: white !important;
+}
+
+.mud-input{
+    width: 200px;
+}
+
 .mud-chart.mud-chart-legend-bottom{
     align-self: center !important;
 }
 
+
+.mud-grid-spacing-xs-6>.mud-grid-item{
+padding-top: 14px !important;
+}
+
 /* Font weights */
-.font-regular { font-weight: 400; }
-.font-medium { font-weight: 500; }
-.font-semibold { font-weight: 600; }
-.font-bold { font-weight: 700; }
+.font-regular { font-weight: 400 !important; }
+.font-medium { font-weight: 500 !important; }
+.font-semibold { font-weight: 600 !important; }
+.font-bold { font-weight: 700 !important; }
 
 /* Text colors */
-.text-primary { color: var(--bs-blue); }
-.text-secondary { color: var(--bs-gray); }
-.text-red { color: var(--bs-red); }
-.text-green { color: var(--bs-green); }
-.text-white { color: white; }
-.text-gray { color: #6b7280; }
+.text-primary { color: var(--bs-blue) !important; }
+.text-secondary { color: var(--bs-gray) !important;; }
+.text-red { color: var(--bs-red) !important; }
+.text-green { color: var(--bs-green) !important; }
+.text-white { color: white !important; }
+.text-gray { color: #6b7280 !important; }
 
 /* bg colors */
-.bg-white { background-color: white;}
-.bg-gray { background-color: #6b7280;}
-.bg-primary {background: var(--bs-blue);}
-.bg-transparent {background: transparent;}
+.bg-white { background-color: white !important;}
+.bg-gray { background-color: #6b7280 !important;}
+.bg-primary {background: var(--bs-blue) !important;}
+.bg-transparent {background: transparent !important;}
 
 /* Gaps */
 .gap-1 { gap: 0.25rem; }
@@ -211,3 +233,15 @@ code {
 .col-8 { flex: 0 0 auto; width: 66.666667%; }
 .col-10 { flex: 0 0 auto; width: 83.333333%; }
 .col-12 { flex: 0 0 auto; width: 100%; }
+
+.h-80{
+    height: 80% !important;
+}
+
+.h-90{
+    height: 90% !important;
+}
+
+.h-100{
+    height: 100% !important;
+}

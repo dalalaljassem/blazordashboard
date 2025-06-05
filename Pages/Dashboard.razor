@@ -1,14 +1,14 @@
 ﻿@page "/"
 
 <BlazePage Title="Dashboard">
-    <div class="flex flex-row pb-2 items-center">
+    <div class="flex flex-row pb-4 items-center">
         <div class="flex flex-col">
             <h6 class="text-gray">Greetings Dalal</h6>
             <h4 class="font-bold ">Welcome to your Dashboard!</h4>
         </div>
         <div class="ml-auto w-[250px]">
-            <MudSelect T="string" @bind-Value="selectedValue" Placeholder="This Month" Variant="Variant.Outlined"
-                Dense="true" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.ArrowDropDown"
+            <MudSelect T="string" @bind-Value="selectedValue" Placeholder="This Month" Dense="true"
+                Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.ArrowDropDown"
                 Class="rounded-md text-sm font-medium text-primary bg-transparent">
                 @foreach (var item in items)
                 {
@@ -21,10 +21,10 @@
     <MudGrid>
         <!-- Payment Pending -->
         <MudItem xs="12" md="6">
-            <MudPaper Elevation="0" Class="flex flex-col rounded-xl p-4 bg-white ">
+            <MudPaper Elevation="0" Class="flex flex-col rounded-lg p-4 bg-white py-3 ">
                 <div class="flex items-center ">
                     <div class="flex flex-col">
-                        <h6 class="text-gray">Pending Payments</h6>
+                        <h6 class="text-gray my-0">Pending Payments</h6>
                     </div>
                     <div class="ml-auto text-sm">
                         <span class="statcard-value font-bold text-red">KD 3,200</span>
@@ -33,10 +33,10 @@
             </MudPaper>
         </MudItem>
         <MudItem xs="12" md="6">
-            <MudPaper Elevation="0" Class="flex flex-col rounded-xl p-4 bg-white ">
+            <MudPaper Elevation="0" Class="flex flex-col rounded-lg p-4 bg-white py-3 ">
                 <div class="flex items-center ">
                     <div class="flex flex-col">
-                        <h6 class="text-gray">Collected Payments</h6>
+                        <h6 class="text-gray my-0">Collected Payments</h6>
                     </div>
                     <div class="ml-auto text-sm">
                         <span class="statcard-value font-bold text-green">KD 21,450</span>
@@ -66,29 +66,136 @@
 
         <!-- Second Row: Charts -->
         <MudItem xs="12" md="8">
-            <MudPaper Elevation="0" Class="h-[320px] p-4 flex flex-col justify-between rounded-lg">
-                <MudText Typo="Typo.h6" Class="mb-2">Revenue Overview</MudText>
+            <MudPaper Elevation="0" Class="px-4 py-2 flex flex-col justify-between rounded-lg">
+                <MudText Typo="Typo.h6" Class="mb-2 font-bold">Revenue Overview</MudText>
                 <MudChart ChartType="ChartType.StackedBar" ChartSeries="@_series" @bind-SelectedIndex="_index"
-                    class="flex items-center" XAxisLabels="@_xAxisLabels" Width="@_width" Height="@_height"
+                    class="flex items-center" XAxisLabels="@_xAxisLabels" Width="100%" Height="250px"
                     AxisChartOptions="_axisChartOptions">
                 </MudChart>
             </MudPaper>
         </MudItem>
 
+        @* <MudItem xs="12" md="8">
+        <MudPaper Elevation="1" Class="rounded-xl p-4 shadow-sm flex flex-col gap-4">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+        <MudAvatar Class="bg-gray-100 text-gray-600" Icon="@Icons.Material.Filled.Groups"
+        Size="Size.Medium" />
+        <div>
+        <MudText Typo="Typo.h5" Class="font-bold text-xl text-gray-900">3.4k</MudText>
+        <MudText Typo="Typo.caption" Class="text-gray-500 -mt-1">Leads generated per week</MudText>
+        </div>
+        </div>
+        <MudChip T="string" Color="Color.Success" Variant="Variant.Filled"
+        Class="text-sm font-medium px-2 py-1 rounded-md">
+        ↑ 42.5%
+        </MudChip>
+        </div>
+
+        <MudDivider />
+
+        <!-- Spend & Rate Row -->
+        <div class="flex justify-between text-sm text-gray-700 font-medium">
+        <div>Money spent: <span class="font-bold text-gray-900">$3,232</span></div>
+        <div>Conversion rate: <span class="font-bold text-gray-900">1.2%</span></div>
+        </div>
+
+        <!-- Chart -->
+        <MudChart ChartType="ChartType.StackedBar" ChartSeries="@_series" XAxisLabels="@_xAxisLabels"
+        AxisChartOptions="_axisChartOptions" Height="230px" Width="100%" Class="pt-2" />
+
+        <MudDivider />
+
+        <!-- Footer -->
+        <div class="flex justify-between items-center text-sm pt-1">
+        <MudSelect T="string" Dense="true">
+        <MudSelectItem Value=@("Last 7 days")>Last 7 days</MudSelectItem>
+        <MudSelectItem Value=@("Last 30 days")>Last 30 days</MudSelectItem>
+        </MudSelect>
+        <a href="#" class="text-blue-600 font-medium hover:underline">LEADS REPORT</a>
+        </div>
+
+        </MudPaper>
+        </MudItem> *@
+
+
         <MudItem xs="12" md="4">
-            <MudPaper Elevation="0" Class="h-[320px] p-4 flex flex-col justify-between rounded-lg">
-                <MudText Typo="Typo.h6" Class="mb-2">Property Overview</MudText>
-                <MudChart ChartType="ChartType.Donut" Width="300px" Height="300px" InputData="@data"
+            <MudPaper Elevation="0" Class="px-4 py-2 flex flex-col justify-between rounded-lg">
+
+                <!-- Header -->
+                <div class="w-full flex items-center justify-between">
+                    <MudText Typo="Typo.h6" Class="mb-2 font-bold">Property Overview</MudText>
+                    <MudIconButton Icon="@Icons.Material.Filled.Download" Size="Size.Small" Class="text-gray-400" />
+                </div>
+                <!-- Spend & Rate Row -->
+                <div class="flex justify-between text-sm text-gray-700 font-medium py-4">
+                    <div>Money spent: <span class="font-bold text-gray-900">$3,232</span></div>
+                    <div>Conversion rate: <span class="font-bold text-gray-900">1.2%</span></div>
+                </div>
+                <MudChart ChartType="ChartType.Donut" Width="200px" Height="200px" InputData="@data"
                     InputLabels="@labels">
                     <CustomGraphics>
-                        <text class="donut-inner-text" x="50%" y="35%" dominant-baseline="middle" text-anchor="middle"
-                            fill="black" font-family="Helvetica" font-size="20">Total</text>
-                        <text class="donut-inner-text" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-                            fill="black" font-family="Helvetica" font-size="50">@data.Sum().ToString()</text>
+                        <g>
+                            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="32"
+                                font-weight="bold" fill="black">
+                                $134.4k
+                            </text>
+                            <text x="50%" y="60%" text-anchor="middle" dominant-baseline="middle" font-size="16"
+                                fill="#4b4b4b">
+                                Total Income
+                            </text>
+                        </g>
                     </CustomGraphics>
                 </MudChart>
             </MudPaper>
         </MudItem>
+
+        @* <MudItem xs="12" md="4">
+        <MudPaper Elevation="1" Class="rounded-xl p-4 shadow-sm flex flex-col gap-4 items-center">
+
+        <!-- Header -->
+        <div class="w-full flex items-center justify-between">
+        <MudText Typo="Typo.h6" Class="font-semibold text-gray-800">Website traffic</MudText>
+        <MudIconButton Icon="@Icons.Material.Filled.Download" Size="Size.Small" Class="text-gray-400" />
+        </div>
+
+        <!-- Filter options -->
+        <div class="w-full flex justify-center gap-2 text-sm text-gray-600">
+        <MudChip T="string">Desktop</MudChip>
+        <MudChip T="string">Tablet</MudChip>
+        <MudChip T="string">Mobile</MudChip>
+        </div>
+
+        <!-- Donut chart -->
+        <MudChart ChartType="ChartType.Donut" Width="200px" Height="200px" InputData="@data"
+        InputLabels="@labels">
+        <CustomGraphics>
+        <g>
+        <text x="50%" y="45%" text-anchor="middle" dominant-baseline="middle"
+        font-family="Helvetica" font-size="14" fill="#6B7280">
+        $66.4k
+        </text>
+        <text x="50%" y="60%" text-anchor="middle" dominant-baseline="middle"
+        font-family="Helvetica" font-size="12" fill="#9CA3AF">
+        Unique visitors
+        </text>
+        </g>
+        </CustomGraphics>
+        </MudChart>
+
+        <!-- Footer -->
+        <div class="w-full flex justify-between items-center pt-2 text-sm text-gray-500">
+        <MudSelect T="string" Class="text-sm" Dense="true">
+        <MudSelectItem Value="@("Last 7 days")">Last 7 days</MudSelectItem>
+        <MudSelectItem Value=@("Last 30 days")>Last 30 days</MudSelectItem>
+        </MudSelect>
+        <a href="#" class="font-semibold text-primary">GET ANALYSIS</a>
+        </div>
+        </MudPaper>
+        </MudItem> *@
+
 
         <!-- Second Row: Table -->
         <MudItem xs="12" md="12" lg="12">
@@ -96,7 +203,7 @@
                 <div class="flex justify-between items-center pb-4">
                     <MudText Typo="Typo.h6" Class="font-semibold text-primary">Newly Added Properties</MudText>
                     <MudButton Variant="Variant.Outlined" EndIcon="@Icons.Material.Filled.KeyboardArrowRight"
-                        Class="text-primary border-primary">
+                        Class="text-primary border-primary" OnClick="@(() => Nav.NavigateTo("/properties"))">
                         See All
                     </MudButton>
                 </div>
@@ -131,12 +238,13 @@
 
 
 @code {
+
+    [Inject] NavigationManager Nav { get; set; }
     private string selectedValue;
     private List<string> items = new() { "Last Month", "Last 2 Months", "Last 3 Months", "Last 4 Months" };
 
     private int _index = -1; //default value cannot be 0 -> first selectedindex is 0.
-    private string _width = "650px";
-    private string _height = "350px";
+    private string _width = "550px";
     private AxisChartOptions _axisChartOptions = new AxisChartOptions();
 
     private List<ChartSeries> _series = new List<ChartSeries>()
