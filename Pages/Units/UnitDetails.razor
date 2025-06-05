@@ -1,1 +1,132 @@
 @page "/units"
+
+@using MudBlazor
+
+<!-- ✅ Header Row: Title + Controls -->
+<div class="flex flex-wrap justify-between items-center mb-4 gap-2">
+
+    <!-- Title -->
+    <MudText Typo="Typo.h6" Class="font-semibold text-gray-800">
+        unit List
+    </MudText>
+
+    <!-- Controls: Search + Buttons -->
+    <div class="flex flex-wrap gap-2 items-center">
+        <!-- Filter -->
+        <MudIconButton Icon="@Icons.Material.Filled.FilterList" aria-label="Filter"
+            OnClick="() => _filterDrawerOpen = true" />
+
+        <!-- Add Button -->
+        <MudButton StartIcon="@Icons.Material.Filled.Add" Style="background-color:  var(--bs-blue); color: white;"
+            class="">
+            Add unit
+        </MudButton>
+    </div>
+</div>
+
+<MudPaper Class="rounded-lg shadow-sm p-4 bg-white">
+    <!-- ✅ Table -->
+    <MudTable Items="units" Dense="true" Hover="true" Elevation="0" RowsPerPage="10"
+        Class="text-sm text-gray rounded-lg">
+        <HeaderContent>
+            <MudTh>#</MudTh>
+            <MudTh>Name</MudTh>
+            <MudTh>Address</MudTh>
+            <MudTh>Agent</MudTh>
+            <MudTh>Price</MudTh>
+            <MudTh>Status</MudTh>
+            <MudTh>Actions</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="#">@context.Id</MudTd>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Address">@context.Address</MudTd>
+            <MudTd DataLabel="Agent">@context.Agent</MudTd>
+            <MudTd DataLabel="Price">@context.Price KWD</MudTd>
+            <MudTd DataLabel="Status">
+                <MudChip T="string" Color="@GetStatusColor(context.Status)">
+                    @context.Status
+                </MudChip>
+            </MudTd>
+            <MudTd Align="Align.Right">
+                <MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+                    <ActivatorContent>
+                        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" />
+                    </ActivatorContent>
+                    <ChildContent>
+                        <MudMenuItem Label="Edit"></MudMenuItem>
+                        <MudMenuItem Label="Delete"></MudMenuItem>
+                    </ChildContent>
+                </MudMenu>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+
+</MudPaper>
+
+
+<Offcanvas @bind-Open="_filterDrawerOpen" Title="Filter units">
+    <ChildContent>
+        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
+
+        <MudSelect T="string" Label="Status" Variant="Variant.Outlined" Class="mb-4 w-100">
+            <MudSelectItem Value=@("Active")>Active</MudSelectItem>
+            <MudSelectItem Value=@("Inactive")>Inactive</MudSelectItem>
+        </MudSelect>
+
+        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" FullWidth="true" />
+
+        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
+
+        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
+    </ChildContent>
+
+    <FooterContent>
+        <div class="d-flex flex-end gap-6">
+            <MudButton Variant="Variant.Text" OnClick="() => _filterDrawerOpen = false">Cancel
+            </MudButton>
+            <MudButton Variant="Variant.Text" Style="background-color:  var(--bs-blue); color: white;"
+                OnClick="ApplyFilters">Apply</MudButton>
+        </div>
+    </FooterContent>
+</Offcanvas>
+
+@code {
+    private string _searchText = "";
+
+    public class unit
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Agent { get; set; }
+        public decimal Price { get; set; }
+        public string Status { get; set; } = "Rent"; // or "Sell"
+    }
+
+    private List<unit> units = new()
+{
+new unit { Id = 1, Name = "The Cool House", Address = "Shuwaikh", Agent = "Goose House", Price = 2311.55M, Status =
+"Sell" },
+new unit { Id = 2, Name = "DJ's Dungeon", Address = "Khaldiya", Agent = "MCR", Price = 3522.42M, Status = "Rent" }
+};
+
+    private Color GetStatusColor(string status)
+    {
+        return status switch
+        {
+            "Sell" => Color.Success,
+            "Rent" => Color.Info,
+            _ => Color.Default
+        };
+    }
+
+    private bool _filterDrawerOpen = false;
+
+    private void ApplyFilters()
+    {
+        // Your filtering logic here
+        _filterDrawerOpen = false;
+    }
+
+}
