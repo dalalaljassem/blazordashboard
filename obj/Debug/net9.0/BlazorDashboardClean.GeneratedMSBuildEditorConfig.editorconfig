@@ -35,6 +35,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaGFyZWQvQnV0dG9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/dalalaljassem/BlazorDashboardClean/Components/Shared/Dialog.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaGFyZWQvRGlhbG9nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/dalalaljassem/BlazorDashboardClean/Components/Shared/Offcanvas.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaGFyZWQvT2ZmY2FudmFzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

@@ -4,29 +4,22 @@
 <MudContainer MaxWidth="MaxWidth.False">
 
     <!-- Stepper Navigation -->
-    <MudStepper @bind-ActiveStep="_activeStep" Elevation="0" Class="mb-6" CurrentStepColor="Color.Info"
-        CompletedStepColor="Color.Info">
+    <MudStepper @ref="_stepperRef" @bind-ActiveStep="_activeStep" Elevation="0" Class="mb-6"
+        CurrentStepColor="Color.Info" CompletedStepColor="Color.Info">
         <ActionContent Context="stepper">
-            @if (!_completed)
-            {
-                <MudIconButton OnClick="@(() => stepper.PreviousStepAsync())" Icon="@Icons.Material.Filled.ArrowBack"
-                    Color="Color.Primary" Disabled="@(_index <= 0)" />
-                <MudSpacer />
-                @if (stepper.Steps[_index].Skippable == true)
-                {
-                    <MudIconButton OnClick="@(() => stepper.SkipCurrentStepAsync())" Icon="@stepper.SkipButtonIcon"
-                        Color="Color.Info" />
-                }
-                <MudIconButton OnClick="@(() => stepper.NextStepAsync())" Icon="@Icons.Material.Filled.ArrowForward"
-                    Color="Color.Info" />
-            }
+            <MudIconButton OnClick="@PreviousStep" Icon="@Icons.Material.Filled.ArrowBack" Color="Color.Info"
+                Disabled="@(_activeStep <= 0)" />
+
+            <MudSpacer />
+
+            <MudIconButton OnClick="@NextStep" Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Info"
+                Disabled="@(_activeStep >= 3)" />
         </ActionContent>
         <ChildContent>
             <MudStep Title="Property Details" />
             <MudStep Title="Property Price" />
             <MudStep Title="Property Image" />
             <MudStep Title="Completed" />
-
         </ChildContent>
     </MudStepper>
 
@@ -34,36 +27,38 @@
     <MudGrid>
         <!-- Left Form Area -->
         <MudItem xs="12" md="8">
-            <!-- General Information -->
-            <MudPaper Class="p-4 mb-6 rounded-lg" Elevation="0">
-                <MudText Typo="Typo.subtitle1" Class="font-semibold mb-4">General Information</MudText>
+            @if (_activeStep == 0)
+            {
+                <!-- General Information -->
+                <MudPaper Class="p-4 mb-6 rounded-lg" Elevation="0">
+                    <MudText Typo="Typo.subtitle1" Class="font-semibold mb-4">General Information</MudText>
 
-                <MudGrid>
-                    <MudItem xs="6">
-                        <MudSelect T="string" Label="Type" Variant="Variant.Outlined" @bind-Value="type">
-                            <MudSelectItem Value=@("Sale")>Sale</MudSelectItem>
-                            <MudSelectItem Value=@("Rent")>Rent</MudSelectItem>
-                        </MudSelect>
-                    </MudItem>
-                    <MudItem xs="6">
-                        <MudSelect T="string" Label="Property Type" Variant="Variant.Outlined"
-                            @bind-Value="propertyType">
-                            <MudSelectItem Value=@("Apartment")>Apartment</MudSelectItem>
-                            <MudSelectItem Value=@("Villa")>Villa</MudSelectItem>
-                        </MudSelect>
-                    </MudItem>
-                    <MudItem xs="12">
-                        <MudTextField Label="Unit Name" Variant="Variant.Outlined" @bind-Value="unitName" />
-                    </MudItem>
-                    <MudItem xs="12">
-                        <MudTextField Label="Description" Variant="Variant.Outlined" Lines="4"
-                            @bind-Value="description" />
-                    </MudItem>
-                </MudGrid>
-            </MudPaper>
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <MudSelect T="string" Label="Type" Variant="Variant.Outlined" @bind-Value="type">
+                                <MudSelectItem Value=@("Sale")>Sale</MudSelectItem>
+                                <MudSelectItem Value=@("Rent")>Rent</MudSelectItem>
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect T="string" Label="Property Type" Variant="Variant.Outlined"
+                                @bind-Value="propertyType">
+                                <MudSelectItem Value=@("Apartment")>Apartment</MudSelectItem>
+                                <MudSelectItem Value=@("Villa")>Villa</MudSelectItem>
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudTextField Label="Unit Name" Variant="Variant.Outlined" @bind-Value="unitName" />
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudTextField Label="Description" Variant="Variant.Outlined" Lines="4"
+                                @bind-Value="description" />
+                        </MudItem>
+                    </MudGrid>
+                </MudPaper>
 
-            <!-- Location -->
-            <MudPaper Class="p-4 mb-6 rounded-lg" Elevation="0">
+                <!-- Location -->
+                <MudPaper Class="p-4 mb-6 rounded-lg" Elevation="0">
                 <MudText Typo="Typo.subtitle1" Class="font-semibold mb-4">Unit Location</MudText>
 
                 <MudGrid>
@@ -84,6 +79,42 @@
                     </MudItem>
                 </MudGrid>
             </MudPaper>
+            }
+            else if (_activeStep == 1 || _activeStep == 2)
+            {
+                <MudPaper Class="p-4 mb-6 rounded-lg" Elevation="0">
+                    <MudText Typo="Typo.subtitle1" Class="font-semibold mb-4">General Information</MudText>
+
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <MudSelect T="string" Label="Type" Variant="Variant.Outlined" @bind-Value="type">
+                                <MudSelectItem Value=@("Sale")>Sale</MudSelectItem>
+                                <MudSelectItem Value=@("Rent")>Rent</MudSelectItem>
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect T="string" Label="Property Type" Variant="Variant.Outlined"
+                                @bind-Value="propertyType">
+                                <MudSelectItem Value=@("Apartment")>Apartment</MudSelectItem>
+                                <MudSelectItem Value=@("Villa")>Villa</MudSelectItem>
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudTextField Label="Unit Name" Variant="Variant.Outlined" @bind-Value="unitName" />
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudTextField Label="Description" Variant="Variant.Outlined" Lines="4"
+                                @bind-Value="description" />
+                        </MudItem>
+                    </MudGrid>
+                </MudPaper>
+            }
+            else if (_activeStep == 3)
+            {
+                <MudText Typo="Typo.subtitle1" Class="font-semibold mb-4">Thank you!</MudText>
+                <MudText Typo="Typo.body2" Class="text-gray-600">Your property details request has been sent for review
+                please wait patiently for your millions to arrive</MudText>
+            }
         </MudItem>
 
         <!-- Preview Card Right -->
@@ -98,7 +129,8 @@
                     <span>3 🛁</span>
                     <span>2200 sqft</span>
                 </MudStack>
-                <MudChip T="string" Color="Color.Warning" Class="mt-2 text-white">Under Review
+                <MudChip T="string" Color="@(_activeStep == 3 ? Color.Success : Color.Warning)" Class="mt-2 text-white">
+                    @(_activeStep == 3 ? "Published" : "Under Review")
                 </MudChip>
             </MudPaper>
         </MudItem>
@@ -106,8 +138,8 @@
 </MudContainer>
 
 @code {
-    private int _index;
     private bool _completed;
+    private MudStepper _stepperRef;
     private int _activeStep = 0;
     private string type = "Sale";
     private string propertyType = "Apartment";
@@ -119,9 +151,17 @@
     private string state = "";
     private string country = "";
 
-    private void NextStep()
+    private async Task NextStep()
     {
         if (_activeStep < 3)
             _activeStep++;
+        await _stepperRef.NextStepAsync();
+    }
+
+    private async Task PreviousStep()
+    {
+        if (_activeStep > 0)
+            _activeStep--;
+        await _stepperRef.PreviousStepAsync();
     }
 }
