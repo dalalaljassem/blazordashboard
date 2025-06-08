@@ -1,0 +1,117 @@
+@page "/properties/add"
+@using MudBlazor
+
+<MudContainer MaxWidth="MaxWidth.False" Class="p-4">
+    <MudPaper Class="p-6 rounded-lg shadow-sm bg-white">
+
+        <!-- Stepper Navigation -->
+        <MudStepper @bind-ActiveStep="_activeStep" Elevation="0" Class="mb-6">
+            <MudStep Title="Property Details" />
+            <MudStep Title="Property Price" />
+            <MudStep Title="Property Image" />
+            <MudStep Title="Completed" />
+        </MudStepper>
+
+        <!-- Property Form Content -->
+        <MudGrid>
+            <!-- Left Form Area -->
+            <MudItem xs="12" md="8">
+                <!-- General Information -->
+                <MudPaper Class="p-4 mb-6 rounded-md border border-gray-300">
+                    <MudText Typo="Typo.subtitle1" Class="font-semibold mb-4">General Information</MudText>
+
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <MudSelect T="string" Label="Type" Variant="Variant.Outlined" @bind-Value="type">
+                                <MudSelectItem Value=@("Sale")>Sale</MudSelectItem>
+                                <MudSelectItem Value=@("Rent")>Rent</MudSelectItem>
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect T="string" Label="Property Type" Variant="Variant.Outlined"
+                                @bind-Value="propertyType">
+                                <MudSelectItem Value=@("Apartment")>Apartment</MudSelectItem>
+                                <MudSelectItem Value=@("Villa")>Villa</MudSelectItem>
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudTextField Label="Unit Name" Variant="Variant.Outlined" @bind-Value="unitName" />
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudTextField Label="Description" Variant="Variant.Outlined" Lines="4"
+                                @bind-Value="description" />
+                        </MudItem>
+                    </MudGrid>
+                </MudPaper>
+
+                <!-- Location -->
+                <MudPaper Class="p-4 rounded-md border border-gray-300">
+                    <MudText Typo="Typo.subtitle1" Class="font-semibold mb-4">Unit Location</MudText>
+
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudTextField Label="Street Address" Variant="Variant.Outlined" @bind-Value="address" />
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudTextField Label="House Number" Variant="Variant.Outlined" @bind-Value="houseNumber" />
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudTextField Label="Zip Code" Variant="Variant.Outlined" @bind-Value="zip" />
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudTextField Label="State" Variant="Variant.Outlined" @bind-Value="state" />
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudTextField Label="Country" Variant="Variant.Outlined" @bind-Value="country" />
+                        </MudItem>
+                    </MudGrid>
+                </MudPaper>
+            </MudItem>
+
+            <!-- Preview Card Right -->
+            <MudItem xs="12" md="4">
+                <MudPaper Class="p-4 border border-gray-200 rounded-lg">
+                    <MudText Typo="Typo.subtitle1" Class="font-semibold mb-2">Preview</MudText>
+                    <MudPaper Class="bg-gray-100 h-40 mb-2 rounded-md"></MudPaper>
+                    <MudText Typo="Typo.body1" Class="font-semibold">@unitName</MudText>
+                    <MudText Typo="Typo.body2" Class="text-gray-600">@address</MudText>
+                    <MudStack Row Class="text-sm mt-2" Spacing="1">
+                        <span>3 🛏</span>
+                        <span>3 🛁</span>
+                        <span>2200 sqft</span>
+                    </MudStack>
+                    <MudChip T="string" Color="Color.Success" Class="mt-2">This is a preview when your property is
+                        published
+                    </MudChip>
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+
+        <!-- Footer Controls -->
+        <MudDivider Class="my-6" />
+        <div class="flex justify-end gap-2">
+            <Button Variant="Variant.Text">Cancel</Button>
+            <Button Class="btn-primary" OnClick="NextStep">Next</Button>
+        </div>
+
+    </MudPaper>
+</MudContainer>
+
+@code {
+    private int _activeStep = 0;
+    private string type = "Sale";
+    private string propertyType = "Apartment";
+    private string unitName = "Snow White’s Cottage";
+    private string description = "";
+    private string address = "47th Avenue, Bayside, NY, United States";
+    private string houseNumber = "211-17";
+    private string zip = "32354";
+    private string state = "";
+    private string country = "";
+
+    private void NextStep()
+    {
+        if (_activeStep < 3)
+            _activeStep++;
+    }
+}

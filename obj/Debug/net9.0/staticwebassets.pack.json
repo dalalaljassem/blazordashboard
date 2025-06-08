@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/BlazorDashboardClean.styles.css"
     },
     {
+      "Id": "/Users/dalalaljassem/BlazorDashboardClean/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
       "Id": "/Users/dalalaljassem/BlazorDashboardClean/wwwroot/css/app.css",
       "PackagePath": "staticwebassets/css/app.css"
     },

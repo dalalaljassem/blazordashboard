@@ -1,0 +1,16 @@
+@using MudBlazor
+
+<MudButton Variant="@Variant" Size="@Size" StartIcon="@StartIcon" Disabled="@Disabled"
+    Class="@($"custom-button {Class}")" OnClick="@OnClick">
+    <span style="font-size:@FontSize">@ChildContent</span>
+</MudButton>
+@code {
+    [Parameter] public Variant Variant { get; set; } = Variant.Filled;
+    [Parameter] public Size Size { get; set; } = Size.Medium;
+    [Parameter] public string? StartIcon { get; set; } // Icon only if provided
+    [Parameter] public string FontSize { get; set; } = "14px"; // Control text size
+    [Parameter] public bool Disabled { get; set; } = false;
+    [Parameter] public EventCallback OnClick { get; set; }
+    [Parameter] public string? Class { get; set; } // Extra class for spacing/styling
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

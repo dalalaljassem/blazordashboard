@@ -4,7 +4,8 @@
   container-type: inline-size;
 }
 * {
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: 'Inter', sans-serif;
 }
 .pointer-events-auto {
   pointer-events: auto;

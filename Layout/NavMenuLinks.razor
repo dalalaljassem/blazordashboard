@@ -4,8 +4,9 @@
 <NavLink Href="@Href"
     class="group flex items-center gap-3 rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-[--mud-palette-primary-hover] hover:text-white"
     Match="@Match" ActiveClass="active-navlink text-white">
-    <MudIcon Icon="@GetCurrentIcon()" Color="@IconColor" Class="w-5 h-5 group-hover:text-white transition-colors" />
-    <span class="truncate group-hover:text-white">@Content</span>
+    <MudIcon Icon="@GetCurrentIcon()" Color="@IconColor" Class="group-hover:text-white transition-colors"
+        style="width: 20px;" />
+    <span class="truncate group-hover:text-white font-size14">@Content</span>
 </NavLink>
 
 @code {

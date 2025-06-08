@@ -1,5 +1,7 @@
 @page "/properties"
 @using MudBlazor
+@using BlazorDashboardClean.Components.Shared
+@inject NavigationManager Navigation
 
 <!-- ✅ Header Row: Title + Controls -->
 <div class="flex flex-wrap justify-between items-center mb-4 gap-2">
@@ -16,10 +18,14 @@
             OnClick="() => _filterDrawerOpen = true" />
 
         <!-- Add Button -->
-        <MudButton StartIcon="@Icons.Material.Filled.Add" Style="background-color:  var(--bs-blue); color: white;"
-            class="">
+        @* <MudButton StartIcon="@Icons.Material.Filled.Add" Style="background-color: var(--bs-blue); color: white;"
+        class="">
+        Add Property
+        </MudButton> *@
+
+        <Button Class="btn-primary" StartIcon="@Icons.Material.Filled.Add" FontSize="12px" OnClick="GoToAddProperty">
             Add Property
-        </MudButton>
+        </Button>
     </div>
 </div>
 
@@ -66,26 +72,28 @@
 
 <Offcanvas @bind-Open="_filterDrawerOpen" Title="Filter Properties">
     <ChildContent>
-        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
+        <MudTextField Label="Field" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
 
         <MudSelect T="string" Label="Status" Variant="Variant.Outlined" Class="mb-4 w-100">
             <MudSelectItem Value=@("Active")>Active</MudSelectItem>
             <MudSelectItem Value=@("Inactive")>Inactive</MudSelectItem>
         </MudSelect>
 
-        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" FullWidth="true" />
+        <MudTextField Label="Field" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" FullWidth="true" />
 
-        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
+        <MudTextField Label="Field" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
 
-        <MudTextField Label="City" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
+        <MudTextField Label="Field" Variant="Variant.Outlined" Class="mb-4 w-100" T="string" />
     </ChildContent>
 
     <FooterContent>
         <div class="d-flex flex-end gap-6">
-            <MudButton Variant="Variant.Text" OnClick="() => _filterDrawerOpen = false">Cancel
-            </MudButton>
-            <MudButton Variant="Variant.Text" Style="background-color:  var(--bs-blue); color: white;"
-                OnClick="ApplyFilters">Apply</MudButton>
+            <Button Variant="Variant.Text" OnClick="() => _filterDrawerOpen = false">
+                Cancel
+            </Button>
+            <Button Class="btn-primary" OnClick="ApplyFilters">
+                Apply
+            </Button>
         </div>
     </FooterContent>
 </Offcanvas>
@@ -127,5 +135,8 @@ new Property { Id = 2, Name = "DJ's Dungeon", Address = "Khaldiya", Agent = "MCR
         // Your filtering logic here
         _filterDrawerOpen = false;
     }
-
+    private void GoToAddProperty()
+    {
+        Navigation.NavigateTo("/properties/add"); // Adjust if your route differs
+    }
 }

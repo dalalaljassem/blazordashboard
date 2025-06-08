@@ -16,7 +16,7 @@
 }
 else
 {
-    <MudLayout Class="min-h-screen">
+    <MudLayout Class="min-h-screen" style="margin-right: 1rem; border-radius: 16px;">
     <MudAppBar Elevation="0" Fixed="true" Class="custom-appbar">
         <MudStack Row="true" Spacing="2">
             <MudIconButton Class="rounded-lg" Icon="@Icons.Material.Filled.Menu" Edge="Edge.Start"
@@ -26,30 +26,32 @@ else
             </MudText>
         </MudStack>
         <MudSpacer />
-        <MudStack Row="true" Spacing="1">
+        <MudStack Row="true" Spacing="4">
             @* <MudBadge Content="3" Color="Color.Error" Overlap="true" Class="my-auto">
             <MudIconButton Size="Size.Medium" Class="p-2" Color="Color.Default"
             Icon="@Icons.Material.Rounded.Notifications" />
             </MudBadge> *@
-            <MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
-                <ActivatorContent>
-                    <MudChip T="string" Size="Size.Large" Class="profile-chip">
-                        <MudStack Spacing="0" Row="true" Class="flex flex-row">
-                            <MudAvatar Size="Size.Medium" Style="background-color: var(--bs-blue); color: white;"
-                                Class="uppercase">
-                                U
-                            </MudAvatar>
-                            <MudText Typo="Typo.body2" Class="my-auto">
-                                User
-                            </MudText>
-                        </MudStack>
-                    </MudChip>
-                </ActivatorContent>
-                <ChildContent>
-                    <MudMenuItem Class="px-6">View Profile</MudMenuItem>
-                    <MudMenuItem Class="px-6">Sign Out</MudMenuItem>
-                </ChildContent>
-            </MudMenu>
+            <g class="d-flex align-items-center 
+    gap-4">
+                <MudIconButton Size="Size.Small" Class="bg-lightgray" Icon="@Icons.Material.Outlined.Notifications" />
+
+                <MudIconButton Size="Size.Small" Class="bg-lightgray" Icon="@Icons.Material.Outlined.Settings" />
+
+            </g>
+
+            <MudStack Spacing="0" Row="true" Class="flex flex-row">
+                <MudAvatar Size="Size.Medium" Style="background-color: var(--bs-blue); color: white;" Class="uppercase">
+                    D
+                </MudAvatar>
+                @* <g>
+                <MudText Typo="Typo.body2" Class="my-auto font-semibold">
+                Dalal Aljassem
+                </MudText>
+                <MudText Class="my-auto text-gray">
+                Joined in June 2025
+                </MudText>
+                </g> *@
+            </MudStack>
         </MudStack>
     </MudAppBar>
     <MudDrawer Fixed="true" Elevation="0" Overlay="false" ClipMode="DrawerClipMode.Always" MiniWidth="72px"
@@ -59,7 +61,8 @@ else
 
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.ExtraLarge" DisableGutters="true" style="padding: 0;">
-            <div class="min-h-screen" style="background-color:#f4f6f8; padding: 1rem;">
+            <div class="min-h-screen" style="
+background-color:#f4f6f8; padding: 1rem; margin-right: 1rem; border-radius: 16px;">
                 @Body
             </div>
         </MudContainer>

@@ -9,10 +9,11 @@
         <div class="ml-auto w-[250px]">
             <MudSelect T="string" @bind-Value="selectedValue" Placeholder="This Month" Dense="true"
                 Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.ArrowDropDown"
-                Class="rounded-md text-sm font-medium text-primary bg-transparent">
+                AdornmentColor="@Color.Info"
+                Class="rounded-md text-sm font-medium text-primary bg-transparent custom-select">
                 @foreach (var item in items)
                 {
-                    <MudSelectItem Value="@item">@item</MudSelectItem>
+                    <MudSelectItem Value="@item" class="bg-blue">@item</MudSelectItem>
                 }
             </MudSelect>
         </div>

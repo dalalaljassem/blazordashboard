@@ -1,5 +1,23 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>BlazorDashboardClean</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>app.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4cgxz1o1qo</Fingerprint>
+      <Integrity>9Df1hK6Zm/lGRK1zdG2ChVWff67U4h0gpNT67jbZveU=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\BlazorDashboardClean.styles.css'))">
       <SourceType>Package</SourceType>
       <SourceId>BlazorDashboardClean</SourceId>
@@ -30,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>9juxvolwkw</Fingerprint>
-      <Integrity>1UcattnOrRVwoE0ydq6Ze2TZ9ZL0DEBrg/W6DASLyCw=</Integrity>
+      <Fingerprint>a2g49xu0wc</Fingerprint>
+      <Integrity>Utc8BVkpELI7HGpkt6srUK5BNyN3mTNiPrJ3RANJ0ig=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\app.css'))</OriginalItemSpec>
@@ -48,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ceoavz82hd</Fingerprint>
-      <Integrity>/HrvFKnwnbm0RQqyAsVnTD95UWQqwqzjvxOwLtqtF0Q=</Integrity>
+      <Fingerprint>xhpzywij30</Fingerprint>
+      <Integrity>K9LZrrfZxly8av9Asay3X7XVuyUwdCWQZZCVaCDPYL8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -120,8 +138,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>w99xr4jxvl</Fingerprint>
-      <Integrity>NKi9Dgoa5WFdiqcWwMAwwgxFtQAKBL6eZnRDZzExCZk=</Integrity>
+      <Fingerprint>gl7v150h4w</Fingerprint>
+      <Integrity>NE2rh0wvqNgKhWdbhITpvFRBiFlev05kBHaDVuV6o/o=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</OriginalItemSpec>
