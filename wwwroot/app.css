@@ -4,7 +4,6 @@ html, body {
     /* overflow-x: hidden; */
 }
 
-
 h1:focus {
     outline: none;
 }
@@ -205,6 +204,10 @@ padding-top: 14px !important;
     position: fixed !important;
     box-shadow: -2px 0 12px rgba(0, 0, 0, 0.1);
     z-index: 60;
+}
+
+.mud-button-text.mud-button-text-primary{
+color: #1b6ec2 !important;
 }
 
 /* Font weights */
