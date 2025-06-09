@@ -256,9 +256,25 @@ font-size: 14px;
     border: none !important;
   }
 
+
+  .custom-button.btn-red {
+    background-color: oklch(57.7% .245 27.325) !important;
+    color: white !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+
   .custom-button.btn-primary:hover {
     background-color: #0056b3 !important;
   }
+
+  .circle{
+    /* background-color: oklch(0.93 0.03 15.38); */
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
 
 /* borders */
 .border-gray{border-color: #efefef !important;}

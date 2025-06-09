@@ -1,0 +1,17 @@
+@using BlazorDashboardClean.Components.Shared
+@using BlazorDashboardClean.Enums
+@inherits HeroIconBase
+
+<span class="@IconClass" style="width:@SizePx;height:@SizePx;" aria-hidden="true">
+    @((MarkupString)IconSvg)
+</span>
+
+@code {
+    [Parameter] public HeroIconName Icon { get; set; }
+    [Parameter] public int Size { get; set; } = 24; // size in pixels
+    [Parameter] public string ColorClass { get; set; } = "text-gray-600";
+
+    private string SizePx => $"{Size}px";
+    private string IconClass => $"inline-block {ColorClass}";
+    protected string IconSvg => HeroIconMap.TryGetValue(Icon, out var svg) ? svg : "";
+}

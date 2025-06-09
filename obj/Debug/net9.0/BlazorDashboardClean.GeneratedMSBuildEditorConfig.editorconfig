@@ -35,8 +35,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaGFyZWQvQnV0dG9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/dalalaljassem/BlazorDashboardClean/Components/Shared/CircleIcon.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaGFyZWQvQ2lyY2xlSWNvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/dalalaljassem/BlazorDashboardClean/Components/Shared/Dialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaGFyZWQvRGlhbG9nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dalalaljassem/BlazorDashboardClean/Components/Shared/HeroIcon.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaGFyZWQvSGVyb0ljb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/dalalaljassem/BlazorDashboardClean/Components/Shared/Offcanvas.razor]

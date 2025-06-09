@@ -1,0 +1,14 @@
+<div class="circle flex items-center justify-center"
+    style="background-color:@CircleColor; width:@CircleSizePx; height:@CircleSizePx;">
+    <Icon IconClass="@IconClass" IconColor="@IconColor" Size="@IconSize" />
+</div>
+
+@code {
+    [Parameter] public string IconClass { get; set; } = "";
+    [Parameter] public string IconColor { get; set; } = "white";
+    [Parameter] public string CircleColor { get; set; } = "#E5E7EB"; // Tailwind gray-200
+    [Parameter] public int IconSize { get; set; } = 20;
+    [Parameter] public int CircleSize { get; set; } = 40;
+
+    private string CircleSizePx => $"{CircleSize}px";
+}

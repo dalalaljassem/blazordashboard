@@ -1,5 +1,8 @@
 @page "/properties/add"
 @using MudBlazor
+@using BlazorDashboardClean.Components.Shared
+@using BlazorDashboardClean.Enums
+@inherits HeroIconBase
 
 <MudContainer MaxWidth="MaxWidth.False">
 
@@ -53,6 +56,11 @@
                         <MudItem xs="12">
                             <MudTextField Label="Description" Variant="Variant.Outlined" Lines="4"
                                 @bind-Value="description" />
+
+                            @* <HeroIcon Icon="HeroIconName.Check" Size="20" ColorClass="text-red" /> *@
+                            @* <HeroIcon Icon="HeroIconName.exclamation-triangle" Size="20" ColorClass="text-green" /> *@
+
+
                         </MudItem>
                     </MudGrid>
                 </MudPaper>

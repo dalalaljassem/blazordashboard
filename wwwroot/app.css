@@ -210,6 +210,12 @@ padding-top: 14px !important;
 color: #1b6ec2 !important;
 }
 
+.circle{
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+}
 /* Font weights */
 .font-regular { font-weight: 400 !important; }
 .font-medium { font-weight: 500 !important; }
